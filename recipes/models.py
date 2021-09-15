@@ -10,14 +10,18 @@ class Recipe(models.Model):
 
 class RecipeIngredient(models.Model):
     class Units(models.TextChoices):
+        # Mass
         GRAM = 'G', 'Gram'
         KILOGRAM = 'KG', 'Kilogram'
-        INCH = 'IN', 'Inch'
+        OUNCE_MASS = 'OZ_M', 'Ounce'
+        # Volume
         TABLESPOON = 'TBSP', 'Tablespoon'
         TEASPOON = 'TSP', 'Teaspoon'
         CUP = 'CUP', 'Cup'
         OUNCE_VOLUME = 'OZ_V', 'Ounce'
-        OUNCE_MASS = 'OZ_M', 'Ounce'
+        # Length
+        INCH = 'IN', 'Inch'
+        
 
     ingredient = models.ForeignKey(Ingredient)
     quantity = models.DecimalField(max_digits=8, decimal_places=3)
